@@ -6,22 +6,21 @@ services:
         image: filebrowser/filebrowser:pi
         container_name: filebrowser
 #       restart: unless-stopped
-
         volumes:
-           - /data:/srv
-           - $PWD/filebrowser.db:/database.db \
-           - $PWD/filebrowser.json:/.filebrowser.json \
+           - /data:/srv 
+           - $PWD/filebrowser.db:/database.db 
+           - $PWD/filebrowser.json:/.filebrowser.json 
         networks:
             - web
         labels:
+            - "traefik.backend=filebrowser"
             - "traefik.docker.network=web"
             - "traefik.enable=true"
-            - "traefik.frontend.rule=Host:filebrowser.dominnio.duckdns.org"
             - "traefik.port=80"
             - "traefik.default.protocol=http"
-            - "traefik.backend=filebrowser"
+            - "traefik.frontend.rule=Host:filebrowser.dominio.duckdns.org"
+            - "traefik.frontend.headers.SSLHost=filebrowser.dominio.duckdns.org"
             - "traefik.frontend.headers.SSLRedirect=true"
-            - "traefik.frontend.headers.SSLHost=flb.silmoon.duckdns.org"
             - "traefik.frontend.headers.SSLForceHost=true"
 networks:
     web:
