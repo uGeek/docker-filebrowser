@@ -24,4 +24,6 @@ docker run --name filebrowser \
 - Username: admin
 - Password: admin
 
+**Si da error el arranque del docker, crea una nueva base de datos en blanco filebrowser.db**
+
 - Fuente: https://filebrowser.org/installation
