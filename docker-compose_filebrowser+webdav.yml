@@ -25,7 +25,7 @@ services:
     webdav:
         container_name: webdav
         image: ugeek/webdav:arm
-	      restart: unless-stopped
+	restart: unless-stopped
         volumes:
             - /webdav:/media
         environment:
