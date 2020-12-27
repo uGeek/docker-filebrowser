@@ -8,7 +8,9 @@ services:
         volumes:
            - /webdav:/srv 
            - $PWD/filebrowser.db:/database.db 
-           - $PWD/filebrowser.json:/.filebrowser.json 
+           - $PWD/filebrowser.json:/.filebrowser.json
+        #ports:
+        #  - 81:80
         networks:
             - web
         labels:
@@ -28,6 +30,8 @@ services:
 	restart: unless-stopped
         volumes:
             - /webdav:/media
+	#ports:
+        #  - 82:80
         environment:
             - USERNAME=usuario
             - PASSWORD=contraseña
